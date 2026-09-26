@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kampüs Etkinlikleri — Etkinlik Güncelle</title>
+</head>
+<body>
+
+  <header>
+    <h1>Etkinlik Güncelle</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Ana Sayfa</a> |
+    <a href="etkinlikler.html">Etkinlikler</a> |
+    <a href="etkinlik-ekle.html">Etkinlik Ekle</a> |
+    <a href="etkinlik-guncelle.html">Etkinlik Güncelle</a>
+  </nav>
+
+  <main>
+    <p>Alanlar mevcut etkinliğin bilgileriyle dolu gelir. Bu sprintte form veri güncellemez.</p>
+
+    <form action="etkinlik-detay.html" method="get">
+      <p>
+        <label for="ad">Etkinlik Adı *</label><br>
+        <input type="text" id="ad" name="ad" value="Kariyer Günleri 2026" maxlength="80" required>
+      </p>
+
+      <p>
+        <label for="kategori">Kategori *</label><br>
+        <select id="kategori" name="kategori" required>
+          <option value="seminer" selected>Seminer</option>
+          <option value="atolye">Atölye</option>
+          <option value="soylesi">Söyleşi</option>
+          <option value="yarisma">Yarışma</option>
+        </select>
+      </p>
+
+      <p>
+        <label for="tarih">Tarih *</label><br>
+        <input type="date" id="tarih" name="tarih" value="2026-10-12" required>
+      </p>
+
+      <p>
+        <label for="saat">Saat *</label><br>
+        <input type="time" id="saat" name="saat" value="14:00" required>
+      </p>
+
+      <p>
+        <label for="yer">Yer *</label><br>
+        <input type="text" id="yer" name="yer" value="A Blok Konferans Salonu" maxlength="80" required>
+      </p>
+
+      <p>
+        <label for="kontenjan">Kontenjan</label><br>
+        <input type="number" id="kontenjan" name="kontenjan" value="120" min="1" max="1000">
+      </p>
+
+      <p>
+        <label for="aciklama">Açıklama</label><br>
+        <textarea id="aciklama" name="aciklama" rows="5" cols="40">Mezunlarla kariyer söyleşileri ve şirket standları.</textarea>
+      </p>
+
+      <p>
+        <button type="submit">Güncelle</button>
+        <button type="reset">Değişiklikleri geri al</button>
+      </p>
+    </form>
+  </main>
+
+  <footer>
+    <p>Ad Soyad &middot; 20xxxxxxx &middot; 2026</p>
+  </footer>
+
+</body>
+</html>
