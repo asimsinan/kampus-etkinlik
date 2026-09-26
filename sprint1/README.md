@@ -5,7 +5,7 @@ ve yeni etkinlik eklenip güncellenebildiği web uygulamasının **HTML iskeleti
 
 - **Öğrenci:** Ad Soyad — 20xxxxxxx
 - **Ders:** Web Teknolojileri ve Programlama, Sprint 1 (HTML ve Git)
-- **Canlı adres:** [https://kampus-etkinlik-adsoyad.vercel.app](https://kampus-etkinlik-adsoyad.vercel.app)
+- **Canlı adres:** [https://kampus-etkinlik-navy.vercel.app](https://kampus-etkinlik-navy.vercel.app)
 
 ## Bu sprintte tamamlanan sayfalar
 
@@ -17,7 +17,5 @@ ve yeni etkinlik eklenip güncellenebildiği web uygulamasının **HTML iskeleti
 | `sprint1/etkinlik-detay.html`    | Tek etkinliğin afişi, künyesi, açıklaması ve gün içi programı             |
 | `sprint1/etkinlik-ekle.html`     | Yeni etkinlik formu (ad, kategori, tarih, saat, yer, kontenjan, açıklama) |
 | `sprint1/etkinlik-guncelle.html` | Aynı form, alanlar `value` ile dolu; buton "Güncelle"                     |
-
-
 
 
