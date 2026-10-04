@@ -211,11 +211,6 @@ footer {
   color: var(--renk-baslik-yazi);
 }
 
-.buton-ikincil {
-  background: transparent;
-  color: var(--renk-ana-koyu);
-}
-
 /* ===== 6. Detay sayfası ===== */
 .detay figure {
   margin: 0;
