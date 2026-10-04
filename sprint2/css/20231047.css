@@ -1,0 +1,351 @@
+/* Ad Soyad — 20231047
+   Renk tonu: 20231047 mod 360 = 127   |   Font: son hane 7 → Palatino */
+
+/* ===== 1. Tasarım değişkenleri ===== */
+:root {
+  --no: 20231047;                    /* öğrenci numarasının tamamı */
+  --ton: mod(var(--no), 360);        /* 0–359 arası renk tonu */
+
+  --renk-ana:       hsl(var(--ton) 65% 38%);
+  --renk-ana-koyu:  hsl(var(--ton) 65% 28%);
+  --renk-yardimci:  hsl(calc(var(--ton) + 180) 60% 45%);
+  --renk-zemin:     hsl(var(--ton) 30% 97%);
+  --renk-kart:      #ffffff;
+  --renk-kenar:     hsl(var(--ton) 20% 85%);
+  --renk-metin:     hsl(var(--ton) 25% 15%);
+  --renk-soluk:     hsl(var(--ton) 12% 38%);
+  --renk-baslik-yazi: #ffffff;
+  --renk-hata:      #c53030;
+  --renk-hata-zemin:#fff5f5;
+
+  --font: "Palatino Linotype", Palatino, serif;   /* son hane 7 */
+
+  --bosluk-s: 0.5rem;
+  --bosluk-m: 1rem;
+  --bosluk-l: 2rem;
+  --kose: 8px;
+  --icerik-genislik: 1100px;
+  --dokunma: 44px;                   /* parmakla basılabilir en küçük yükseklik */
+}
+
+/* ===== 2. Temel ayarlar ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--renk-metin);
+  background: var(--renk-zemin);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--renk-ana-koyu);
+}
+
+a:hover {
+  color: var(--renk-yardimci);
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+  overflow-wrap: anywhere;           /* uzun kelime taşmasın */
+}
+
+/* ===== 3. Sayfa kabuğu: başlık, menü, içerik, alt bilgi ===== */
+.site-baslik {
+  background: var(--renk-ana);
+  color: var(--renk-baslik-yazi);
+  padding: var(--bosluk-m);
+  padding-bottom: var(--bosluk-s);
+}
+
+.site-baslik h1 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.site-baslik p {
+  margin: var(--bosluk-s) 0 0;
+}
+
+.menu {
+  background: var(--renk-ana);
+  padding: 0 var(--bosluk-s) var(--bosluk-s);
+}
+
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;                   /* çok dar ekranda alt satıra kayar */
+  gap: 0.25rem;
+}
+
+.menu a {
+  display: flex;
+  align-items: center;
+  min-height: var(--dokunma);
+  padding: 0 0.6rem;
+  border-radius: var(--kose);
+  color: var(--renk-baslik-yazi);
+  text-decoration: none;
+}
+
+.menu a:hover {
+  background: var(--renk-ana-koyu);
+  color: var(--renk-baslik-yazi);
+}
+
+.menu a[aria-current="page"] {
+  background: var(--renk-zemin);
+  color: var(--renk-ana-koyu);
+  font-weight: bold;
+}
+
+main {
+  max-width: var(--icerik-genislik);
+  margin: 0 auto;
+  padding: var(--bosluk-m);
+}
+
+footer {
+  border-top: 1px solid var(--renk-kenar);
+  color: var(--renk-soluk);
+  text-align: center;
+  padding: var(--bosluk-m);
+  font-size: 0.95rem;
+}
+
+.bolum-baslik {
+  margin: 0 0 var(--bosluk-s);
+}
+
+/* ===== 4. Etkinlik kartları ===== */
+.etkinlik-listesi {
+  display: grid;
+  grid-template-columns: 1fr;        /* telefonda tek sütun */
+  gap: var(--bosluk-m);
+}
+
+.etkinlik-listesi > h2 {
+  grid-column: 1 / -1;               /* bölüm başlığı tüm satırı kaplar */
+}
+
+.kart {
+  background: var(--renk-kart);
+  border: 1px solid var(--renk-kenar);
+  border-top: 6px solid var(--renk-ana);
+  border-radius: var(--kose);
+  padding: var(--bosluk-m);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;                      /* uzun içerik grid'i genişletmesin */
+}
+
+.kart h2,
+.kart h3 {
+  margin: 0 0 var(--bosluk-s);
+  font-size: 1.25rem;
+}
+
+.kart p {
+  margin: 0 0 var(--bosluk-s);
+}
+
+.kart-kategori {
+  align-self: flex-start;
+  background: var(--renk-zemin);
+  color: var(--renk-ana-koyu);
+  border-radius: var(--kose);
+  padding: 0 var(--bosluk-s);
+  font-weight: bold;
+}
+
+.kart p:last-child {
+  margin-top: auto;                  /* link hep kartın altında dursun */
+  margin-bottom: 0;
+}
+
+.kart-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--dokunma);
+  font-weight: bold;
+}
+
+/* ===== 5. Butonlar ===== */
+.buton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--dokunma);
+  padding: 0 var(--bosluk-l);
+  border: 2px solid var(--renk-ana-koyu);
+  border-radius: var(--kose);
+  background: var(--renk-ana-koyu);
+  color: var(--renk-baslik-yazi);
+  font: inherit;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.buton:hover {
+  background: var(--renk-yardimci);
+  border-color: var(--renk-yardimci);
+  color: var(--renk-baslik-yazi);
+}
+
+.buton-ikincil {
+  background: transparent;
+  color: var(--renk-ana-koyu);
+}
+
+/* ===== 6. Detay sayfası ===== */
+.detay figure {
+  margin: 0;
+}
+
+.detay figcaption {
+  color: var(--renk-soluk);
+  font-style: italic;
+  margin-top: var(--bosluk-s);
+}
+
+.kunye {
+  background: var(--renk-kart);
+  border: 1px solid var(--renk-kenar);
+  border-radius: var(--kose);
+  padding: var(--bosluk-m);
+  margin-top: var(--bosluk-m);
+}
+
+.kunye h2 {
+  margin-top: 0;
+}
+
+.kunye dl {
+  margin: 0;
+}
+
+.kunye dt {
+  font-weight: bold;
+}
+
+.kunye dd {
+  margin: 0 0 var(--bosluk-s);
+}
+
+/* ===== 7. Formlar ===== */
+.bilgi {
+  color: var(--renk-soluk);
+}
+
+.form {
+  max-width: 640px;
+}
+
+.alan {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin: 0 0 var(--bosluk-m);
+}
+
+.alan label {
+  font-weight: bold;
+}
+
+.alan input,
+.alan select,
+.alan textarea {
+  width: 100%;
+  min-height: var(--dokunma);
+  padding: var(--bosluk-s);
+  font: inherit;
+  font-size: 1rem;                   /* telefonda otomatik yakınlaştırma olmasın */
+  color: var(--renk-metin);
+  background: var(--renk-kart);
+  border: 2px solid var(--renk-kenar);
+  border-radius: var(--kose);
+}
+
+.alan input:user-invalid,
+.alan select:user-invalid,
+.alan textarea:user-invalid {
+  border-color: var(--renk-hata);
+  background: var(--renk-hata-zemin);
+}
+
+.form-butonlar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--bosluk-s);
+}
+
+/* ===== 8. Geniş ekran ===== */
+@media (min-width: 700px) {
+  .site-baslik,
+  .menu {
+    padding-left: var(--bosluk-l);
+    padding-right: var(--bosluk-l);
+  }
+
+  .site-baslik h1 {
+    font-size: 2rem;
+  }
+
+  .menu a {
+    padding: 0 var(--bosluk-m);
+  }
+
+  main {
+    padding: var(--bosluk-l);
+  }
+
+  .etkinlik-listesi {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .detay-ust {
+    display: grid;
+    grid-template-columns: 3fr 2fr;  /* afiş solda, künye sağda */
+    gap: var(--bosluk-l);
+    align-items: start;
+  }
+
+  .kunye {
+    margin-top: 0;
+  }
+
+  .kunye dl {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--bosluk-s) var(--bosluk-m);
+  }
+
+  .kunye dd {
+    margin: 0;
+  }
+}
+
+@media (min-width: 1000px) {
+  .etkinlik-listesi {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
