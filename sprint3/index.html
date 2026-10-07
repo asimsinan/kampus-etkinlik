@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kampüs Etkinlikleri — Ana Sayfa</title>
+  <link rel="stylesheet" href="css/20231047.css">
+  <script type="module" src="js/event-list.js"></script>
+</head>
+<body>
+
+  <header class="site-baslik">
+    <h1>Kampüs Etkinlikleri</h1>
+    <p>Fakültedeki seminer, atölye ve söyleşileri tek yerden takip edin.</p>
+  </header>
+
+  <nav class="menu">
+    <ul>
+      <li><a href="index.html" aria-current="page">Ana Sayfa</a></li>
+      <li><a href="etkinlikler.html">Etkinlikler</a></li>
+      <li><a href="etkinlik-ekle.html">Ekle</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h2 class="bolum-baslik">Yaklaşan 2 Etkinlik</h2>
+    <section id="etkinlik-listesi" class="etkinlik-listesi" data-limit="2" aria-label="Yaklaşan etkinlikler"></section>
+
+    <p><a class="buton" href="etkinlikler.html">Tüm etkinlikleri gör</a></p>
+  </main>
+
+  <footer>
+    <p>Ad Soyad &middot; 20231047 &middot; 2026</p>
+  </footer>
+
+</body>
+</html>

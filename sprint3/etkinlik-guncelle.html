@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kampüs Etkinlikleri — Etkinlik Güncelle</title>
+  <link rel="stylesheet" href="css/20231047.css">
+  <script type="module" src="js/event-form.js"></script>
+</head>
+<body>
+
+  <header class="site-baslik">
+    <h1>Etkinlik Güncelle</h1>
+  </header>
+
+  <nav class="menu">
+    <ul>
+      <li><a href="index.html">Ana Sayfa</a></li>
+      <li><a href="etkinlikler.html">Etkinlikler</a></li>
+      <li><a href="etkinlik-ekle.html">Ekle</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <p class="bilgi">Alanlar mevcut etkinliğin bilgileriyle dolu gelir. Bu sprintte form veri güncellemez.</p>
+
+    <form id="etkinlik-formu" class="form" data-mode="guncelle" novalidate>
+      <p class="alan">
+        <label for="ad">Etkinlik Adı *</label>
+        <input type="text" id="ad" name="ad" value="Kariyer Günleri 2026" maxlength="80" placeholder="Örn. Kariyer Günleri 2026" required>
+        <span id="ad-hata" class="hata-metni"></span>
+      </p>
+
+      <p class="alan">
+        <label for="kategori">Kategori *</label>
+        <select id="kategori" name="kategori" required>
+          <option value="Seminer" selected>Seminer</option>
+          <option value="Atölye">Atölye</option>
+          <option value="Söyleşi">Söyleşi</option>
+          <option value="Yarışma">Yarışma</option>
+        </select>
+        <span id="kategori-hata" class="hata-metni"></span>
+      </p>
+
+      <p class="alan">
+        <label for="tarih">Tarih *</label>
+        <input type="date" id="tarih" name="tarih" value="2026-10-12" required>
+        <span id="tarih-hata" class="hata-metni"></span>
+      </p>
+
+      <p class="alan">
+        <label for="saat">Saat *</label>
+        <input type="time" id="saat" name="saat" value="14:00" required>
+        <span id="saat-hata" class="hata-metni"></span>
+      </p>
+
+      <p class="alan">
+        <label for="yer">Yer *</label>
+        <input type="text" id="yer" name="yer" value="A Blok Konferans Salonu" maxlength="80" placeholder="Örn. A Blok Konferans Salonu" required>
+        <span id="yer-hata" class="hata-metni"></span>
+      </p>
+
+      <p class="alan">
+        <label for="kontenjan">Kontenjan</label>
+        <input type="number" id="kontenjan" name="kontenjan" min="1" max="1000">
+        <span id="kontenjan-hata" class="hata-metni"></span>
+      </p>
+
+      <p class="alan">
+        <label for="aciklama">Açıklama</label>
+        <textarea id="aciklama" name="aciklama" rows="5">Mezunlarla kariyer söyleşileri ve şirket standları.</textarea>
+      </p>
+
+      <p class="form-butonlar">
+        <button type="submit" class="buton">Güncelle</button>
+      </p>
+    </form>
+
+    <div id="form-mesaj" aria-live="polite"></div>
+  </main>
+
+  <footer>
+    <p>Ad Soyad &middot; 20231047 &middot; 2026</p>
+  </footer>
+
+</body>
+</html>
